@@ -1,0 +1,99 @@
+﻿.main-swiper .swiper-slide {
+    font-size: 14px; 
+    font-weight: 300; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    color: #000; padding:10px !important; height: auto !important;
+}
+.main-swiper .swiper-slide {
+    box-sizing: border-box;
+    border: 1px solid #ddd;border-radius:0px 0px 5px 5px;
+    background: #fff; padding:1px !important;
+}
+.main-swiper {
+    margin: 0px 0 15px;
+    font-size: 18px;
+    /*height: 120px;*/
+}
+.main-swiper.main-swiper-auto .swiper-slide {
+    width: 85%;
+}
+.main-swiper.main-swiper-auto .swiper-slide:nth-child(2n) {
+    width: 70%; 
+}
+.main-swiper.main-swiper-auto .swiper-slide:nth-child(3n) {
+    width: 30%; 
+}
+.main-swiper .item-product{
+    width: 100% !important; text-align:center; color:#888;
+}
+.main-swiper .item-product img{
+    width: 100% !important; display:block; border-radius:0px 0px 5px 5px;
+}
+.main-swiper .item-product span{
+    height:25px; line-height:25px; font-size:8px; color:#888; text-align:center; display:block;overflow:hidden;
+    text-overflow:ellipsis; white-space: nowrap;
+}
+
+.main-page{
+    background:#fff;
+}
+.main-ctx{
+    padding:10px !important;
+}
+.main-group{
+    font-weight:bold; font-size:16px; margin:15px 5px; padding-left:8px; border-left:5px solid #2196f3;
+}
+.main-tabctx{
+    padding:0px !important;
+}
+.bx-main-list{
+    margin:0 !important;
+}
+.bx-main-list .bx-item-title{
+    color:#333; 
+}
+.bx-main-list .bx-item-title span{
+    font-size:12px !important;
+}
+.bx-main-list .bx-item-prize{
+    color:#dd3939;
+}
+.bx-main-list .bx-item-desc{
+    min-height:42px; font-size:14px !important;
+}
+.bx-main-list .bx-item-image img{
+    width:110px; height:85px; border-radius:4px;
+}
+
+.bx-policy-list{
+    margin:0 !important;
+}
+.bx-policy-list .bx-item-title{
+    color:#333;
+}
+.bx-policy-list .bx-item-date{
+    color:#999; margin:10px 0;
+}
+
+/*** 保单详情 ****/
+.bx-my-summary{
+    padding-bottom:10px; margin-bottom:10px; border-bottom:1px solid #eee;
+}
+.bx-my-summary h1{
+    font-size:16px;
+}
+.bx-my-summary .row-item{
+    height:20px; line-height:20px; font-size:12px; color:#888;
+}
+.bx-my-detail{
+    margin-bottom:40px;
+}
+.bx-my-detail .row-item{
+    height:30px; line-height:30px; font-size:14px;
+}
+.bx-my-detail span{
+    text-align:right; display:inline-block; width:80px; padding-right:10px; color:#555;
+}

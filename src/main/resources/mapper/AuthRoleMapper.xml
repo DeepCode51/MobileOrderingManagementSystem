@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xe.demo.mapper.AuthRoleMapper">
+	<resultMap id="BaseResultMap" type="com.xe.demo.model.AuthRole">
+		<id column="roleid" jdbcType="TINYINT" property="roleid" />
+		<result column="rolename" jdbcType="VARCHAR" property="rolename" />
+		<result column="cname" jdbcType="VARCHAR" property="cname" />
+		<collection property="operations" ofType="com.xe.demo.model.AuthOperation">
+			<id column="opid" jdbcType="INTEGER" property="opid" />
+			<result column="opcode" jdbcType="VARCHAR" property="opcode" />
+			<result column="opname" jdbcType="VARCHAR" property="opname" />
+			<result column="ophref" jdbcType="VARCHAR" property="ophref" />
+			<result column="opseq" jdbcType="INTEGER" property="opseq" />
+		</collection>
+	</resultMap>
+
+	<select id="queryRoleById" resultMap="BaseResultMap">
+		select 
+			r.roleid, r.rolename, r.cname, o.opid, o.opname, o.opcode, o.ophref, o.opseq from auth_role r
+		left join auth_role_operation ro on r.roleid = ro.roleid
+		left join auth_operation o on o.opid = ro.opid
+		where r.roleid = #{roleid} and r.enabled = '1'
+	</select>
+	
+	<insert id="addAdmin" useGeneratedKeys="true" keyProperty="roleid">
+		insert into auth_role(rolename, cname) values(#{rolename}, #{cname})
+	</insert>
+
+	<select id="queryByRolename" resultMap="BaseResultMap">
+		select 
+			r.roleid, r.rolename, r.cname from auth_role r 
+		where r.enabled = '1' and r.rolename = #{rolename} 
+	</select>
+</mapper>

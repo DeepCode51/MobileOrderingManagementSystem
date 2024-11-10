@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xe.demo.mapper.AuthUserMapper">
+	<resultMap id="BaseResultMap" type="com.xe.demo.model.AuthUser">
+		<id column="id" jdbcType="INTEGER" property="id" />
+		<result column="username" jdbcType="CHAR" property="username" />
+		<result column="password" jdbcType="CHAR" property="password" />
+		<result column="mobilephone" jdbcType="VARCHAR" property="mobilephone" />
+		<result column="idcard" jdbcType="VARCHAR" property="idcard" />
+		<result column="address" jdbcType="VARCHAR" property="address" />
+		<result column="email" jdbcType="VARCHAR" property="email" />
+		<result column="useable" jdbcType="TINYINT" property="useable" />
+		<result column="roleid" jdbcType="TINYINT" property="roleid" />
+		<result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+		<result column="logintime" jdbcType="TIMESTAMP" property="logintime" />
+		<result column="loginip" jdbcType="VARCHAR" property="loginip" />
+		<association property="role" column="roleid" javaType="com.xe.demo.model.AuthRole">
+			<id property="roleid" column="roleid" />
+			<result property="rolename" column="rolename" />
+			<result property="cname" column="cname" />
+		</association>
+	</resultMap>
+	
+	<insert id="addAdmin" useGeneratedKeys="true" keyProperty="id">
+		insert into auth_user(username, password,mobilephone,idcard,address,email,roleid, addtime) 
+		values(#{username}, #{password},#{mobilephone},#{idcard},#{address},#{email}, #{roleid}, now())
+	</insert>
+
+	<select id="queryByUsername" resultMap="BaseResultMap">
+		select 
+			u.id, u.username, u.password,u.mobilephone,u.idcard,u.address, 
+			u.email ,u.useable, u.loginip, DATE_FORMAT(u.logintime, '%Y-%m-%d %H:%i:%s') logintime, 
+			DATE_FORMAT(u.addtime, '%Y-%m-%d %H:%i:%s') addtime, u.roleid,
+			r.rolename, r.cname from auth_user u, auth_role r 
+		where u.username = #{username} and u.roleid = r.roleid
+		and u.enabled = '1' and r.enabled = '1'
+	</select>
+	
+	<select id="queryList" resultMap="BaseResultMap">
+		select 
+			u.id, u.username, u.email ,u.mobilephone,u.idcard,u.address,u.useable, 
+			u.loginip, DATE_FORMAT(u.logintime, '%Y-%m-%d %H:%i:%s') logintime, 
+			DATE_FORMAT(u.addtime, '%Y-%m-%d %H:%i:%s') addtime, u.roleid,
+			r.rolename, r.cname from auth_user u, auth_role r 
+		where u.roleid = r.roleid and u.enabled = '1' and r.enabled = '1'
+		<if test="null != user.username"> and locate(#{user.username}, u.username) > 0</if>
+		<if test="null != user.roleid"> and u.roleid = #{user.roleid}</if>
+		<if test="null != user.useable"> and u.useable = #{user.useable}</if>
+		order by u.addtime desc
+	</select>
+
+	<select id="queryPaisongList" resultMap="BaseResultMap">
+		select
+		u.id, u.username, u.email ,u.mobilephone,u.idcard,u.address,u.useable,
+		u.loginip, DATE_FORMAT(u.logintime, '%Y-%m-%d %H:%i:%s') logintime,
+		DATE_FORMAT(u.addtime, '%Y-%m-%d %H:%i:%s') addtime, u.roleid,
+		r.rolename, r.cname from auth_user u, auth_role r
+		where u.roleid = r.roleid and u.enabled = '1' and r.enabled = '1'
+		<if test="null != roleName"> and r.rolename = #{roleName}</if>
+		order by u.addtime desc
+	</select>
+	
+	<select id="queryRoleUids" resultType="int">
+		select u.id from auth_user u where u.enabled = '1' and u.roleid = #{roleid}
+	</select>
+	
+	<update id="bindUser">
+		update auth_user set roleid = #{roleid} where id = #{id}
+	</update>
+</mapper>

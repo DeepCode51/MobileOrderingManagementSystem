@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xe.demo.mapper.BXProductsMapper">
+	<resultMap id="BaseResultMap" type="com.xe.demo.model.BXProducts">
+		<id column="id" jdbcType="INTEGER" property="id" />
+		<result column="name" jdbcType="VARCHAR" property="name" />
+		<result column="classifyId" jdbcType="INTEGER" property="classifyId" />
+		<result column="classifyName" jdbcType="VARCHAR" property="classifyName" />
+		<result column="companyId" jdbcType="INTEGER" property="companyId" />
+		<result column="companyName" jdbcType="VARCHAR" property="companyName" />
+		<result column="productCode" jdbcType="VARCHAR" property="productCode" />
+		<result column="pic_1" jdbcType="VARCHAR" property="pic_1" />
+		<result column="pic_2" jdbcType="VARCHAR" property="pic_2" />
+		<result column="brief" jdbcType="VARCHAR" property="brief" />
+		<result column="isHot" jdbcType="BIT" property="isHot" />
+		<result column="productTag" jdbcType="VARCHAR" property="productTag" />
+		<result column="price" jdbcType="DECIMAL" property="price" />
+		<result column="orderIndex" jdbcType="INTEGER" property="orderIndex" />
+		<result column="createDateTime" jdbcType="TIMESTAMP" property="createDateTime" />
+		<result column="publishDateTime" jdbcType="TIMESTAMP" property="publishDateTime" />
+		<result column="status" jdbcType="INTEGER" property="status" />
+		<result column="saleTotal" jdbcType="INTEGER" property="saleTotal" />
+		<result column="url_1" jdbcType="VARCHAR" property="url_1" />
+		<result column="url_2" jdbcType="VARCHAR" property="url_2" />
+		<result column="url_3" jdbcType="VARCHAR" property="url_3" />
+		<result column="url_4" jdbcType="VARCHAR" property="url_4" />
+		<result column="enabled" jdbcType="VARCHAR" property="enabled" />
+		<result column="createuser" jdbcType="VARCHAR" property="createuser" />
+		<result column="updatetime" jdbcType="TIMESTAMP" property="updatetime" />
+		<result column="updateuser" jdbcType="VARCHAR" property="updateuser" />
+		<result column="remark" jdbcType="VARCHAR" property="remark" />
+	</resultMap>
+	
+	<select id="queryProductById" resultMap="BaseResultMap">
+		select t.id,
+			t.name,
+			t.classifyId,
+			(select c.name from bxclassify c where c.id=t.classifyId) as classifyName,
+			t.companyId,
+			(select c.companyName from bxcompany c where c.id=t.companyId) as companyName,
+			t.productCode,
+			t.pic_1,
+			t.pic_2,
+			t.brief,
+			t.isHot,
+			t.productTag,
+			t.price,
+			t.orderIndex,
+			DATE_FORMAT(t.createDateTime, '%Y-%m-%d %H:%i:%s') createDateTime,
+			DATE_FORMAT(t.publishDateTime, '%Y-%m-%d %H:%i:%s') publishDateTime,
+			t.status,
+			t.saleTotal,
+			t.url_1,
+			t.url_2,
+			t.url_3,
+			t.url_4,
+			t.enabled,
+			(select username from auth_user u where u.enabled = '1' and u.id=t.createuser) createuser,
+			DATE_FORMAT(updatetime, '%Y-%m-%d %H:%i:%s') updatetime,
+			(select username from auth_user u where u.enabled = '1' and u.id=t.updateuser) updateuser,
+			remark
+		from bxproducts t
+		where t.id = #{id} and t.enabled = '1'
+	</select>
+	
+	<select id="queryByProductName" resultMap="BaseResultMap">
+		select t.id,
+			t.name,
+			t.classifyId,
+			(select c.name from bxclassify c where c.id=t.classifyId) as classifyName,
+			t.companyId,
+			(select c.companyName from bxcompany c where c.id=t.companyId) as companyName,
+			t.productCode,
+			t.pic_1,
+			t.pic_2,
+			t.brief,
+			t.isHot,
+			t.productTag,
+			t.price,
+			t.orderIndex,
+			DATE_FORMAT(t.createDateTime, '%Y-%m-%d %H:%i:%s') createDateTime,
+			DATE_FORMAT(t.publishDateTime, '%Y-%m-%d %H:%i:%s') publishDateTime,
+			t.status,
+			t.saleTotal,
+			t.url_1,
+			t.url_2,
+			t.url_3,
+			t.url_4,
+			t.enabled,
+			(select username from auth_user u where u.enabled = '1' and u.id=t.createuser) createuser,
+			DATE_FORMAT(updatetime, '%Y-%m-%d %H:%i:%s') updatetime,
+			(select username from auth_user u where u.enabled = '1' and u.id=t.updateuser) updateuser,
+			remark
+		from bxproducts t
+		where t.name = #{productName} and t.enabled = '1'
+	</select>
+	
+	
+	
+	<select id="queryMaxOrderIndex" resultType="java.lang.Integer">
+		select ifnull(max(t.orderIndex), 0)+10 as maxOrderIndex
+		from bxproducts t
+		where t.enabled = '1'
+	</select>
+	
+	
+	<select id="queryList" resultMap="BaseResultMap">
+		select t.id,
+			t.name,
+			t.classifyId,
+			(select c.name from bxclassify c where c.id=t.classifyId) as classifyName,
+			t.companyId,
+			(select c.companyName from bxcompany c where c.id=t.companyId) as companyName,
+			t.productCode,
+			t.pic_1,
+			t.pic_2,
+			t.brief,
+			t.isHot,
+			t.productTag,
+			t.price,
+			t.orderIndex,
+			DATE_FORMAT(t.createDateTime, '%Y-%m-%d %H:%i:%s') createDateTime,
+			DATE_FORMAT(t.publishDateTime, '%Y-%m-%d %H:%i:%s') publishDateTime,
+			t.status,
+			t.saleTotal,
+			t.url_1,
+			t.url_2,
+			t.url_3,
+			t.url_4,
+			t.enabled,
+			(select username from auth_user u where u.enabled = '1' and u.id=t.createuser) createuser,
+			DATE_FORMAT(updatetime, '%Y-%m-%d %H:%i:%s') updatetime,
+			(select username from auth_user u where u.enabled = '1' and u.id=t.updateuser) updateuser,
+			remark
+		from bxproducts t 
+		where t.enabled = '1'
+		<if test="null != product.isHot and product.isHot == true">
+			and isHot = '1'
+		</if>
+		<if test="null != product.status">
+			and status = #{product.status}
+		</if>
+		<if test="null != product.classifyName">
+			and classifyId = (select bc.id from bxclassify bc where bc.id=t.classifyId and enabled = '1' and bc.name = #{product.classifyName}) 
+		</if>
+		<if test="null != product.classifyId">
+			and classifyId =#{product.classifyId}
+		</if>
+		<if test="null != product.productTag">
+			and productTag =#{product.productTag}
+		</if>
+		<if test="null != product.companyName"> and t.companyId in (select c.id from bxcompany c where locate(#{product.companyName}, c.companyName) > 0)</if>
+		order by t.createDateTime desc
+	</select>
+	
+	<insert id="insert" parameterType="com.xe.demo.model.BXProducts">
+		insert into bxproducts(name,classifyId,companyId,productCode,pic_1,pic_2,brief,isHot,productTag,price,orderIndex,createDateTime,publishDateTime,status,saleTotal,url_1,url_2,url_3,url_4,createuser,updatetime,enabled)
+		values(#{name},#{classifyId},#{companyId},#{productCode},#{pic_1},#{pic_2},#{brief},#{isHot},#{productTag},#{price},#{orderIndex},now(),<if test="1== status">now(),</if><if test="0== status">null,</if>
+				#{status},#{saleTotal},#{url_1},#{url_2},#{url_3},#{url_4},#{createuser},now(),'1')
+	</insert>
+	
+	<select id="queryH5List" resultMap="BaseResultMap">
+		select t.id,
+			t.name,
+			t.classifyId,
+			(select c.name from bxclassify c where c.id=t.classifyId) as classifyName,
+			t.companyId,
+			(select c.companyName from bxcompany c where c.id=t.companyId) as companyName,
+			t.productCode,
+			t.pic_1,
+			t.pic_2,
+			t.brief,
+			t.isHot,
+			t.productTag,
+			t.price,
+			t.orderIndex,
+			DATE_FORMAT(t.createDateTime, '%Y-%m-%d %H:%i:%s') createDateTime,
+			DATE_FORMAT(t.publishDateTime, '%Y-%m-%d %H:%i:%s') publishDateTime,
+			t.status,
+			t.saleTotal,
+			t.url_1,
+			t.url_2,
+			t.url_3,
+			t.url_4,
+			t.enabled,
+			(select username from auth_user u where u.enabled = '1' and u.id=t.createuser) createuser,
+			DATE_FORMAT(updatetime, '%Y-%m-%d %H:%i:%s') updatetime,
+			(select username from auth_user u where u.enabled = '1' and u.id=t.updateuser) updateuser,
+			remark
+		from bxproducts t 
+		where t.enabled = '1'
+		<if test="null != product.isHot and product.isHot == true">
+			and isHot = '1'
+		</if>
+		<if test="null != product.status">
+			and status = #{product.status}
+		</if>
+		<if test="null != product.classifyName">
+			and classifyId = (select bc.id from bxclassify bc where bc.id=t.classifyId and enabled = '1' and bc.name = #{product.classifyName}) 
+		</if>
+		<if test="null != product.companyName"> and t.companyId in (select c.id from bxcompany c where locate(#{product.companyName}, c.companyName) > 0)</if>
+		order by t.isHot DESC,publishDateTime desc
+	</select>
+	
+	<update id="update" parameterType="com.xe.demo.model.BXProducts">
+		update bxproducts
+		<set>
+			<if test="name != null">
+				name = #{name,jdbcType=VARCHAR},
+			</if>
+			<if test="classifyId != null">
+				classifyId = #{classifyId,jdbcType=INTEGER},
+			</if>
+			<if test="companyId != null">
+				companyId = #{companyId,jdbcType=INTEGER},
+			</if>
+			<if test="productCode != null">
+				productCode = #{productCode,jdbcType=VARCHAR},
+			</if>
+			<if test="pic_1 != null">
+				pic_1 = #{pic_1,jdbcType=VARCHAR},
+			</if>
+			<if test="pic_2 != null">
+				pic_2 = #{pic_2,jdbcType=VARCHAR},
+			</if>
+			<if test="brief != null">
+				brief = #{brief,jdbcType=VARCHAR},
+			</if>
+			<if test="brief != null">
+				isHot = #{isHot,jdbcType=BIT},
+			</if>
+			<if test="productTag != null">
+				productTag = #{productTag,jdbcType=VARCHAR},
+			</if>
+			<if test="price != null">
+				price = #{price,jdbcType=DECIMAL},
+			</if>
+			<if test="productTag != null">
+				orderIndex = #{orderIndex,jdbcType=INTEGER},
+			</if>
+			<if test="status==1">
+				publishDateTime = now(),
+			</if>
+			<if test="status==0">
+				publishDateTime =null,
+			</if>
+			<if test="status != null">
+				status = #{status,jdbcType=VARCHAR},
+			</if>
+			<if test="status != null">
+				status = #{status,jdbcType=VARCHAR},
+			</if>
+			<if test="url_1 != null">
+				url_1 = #{url_1,jdbcType=VARCHAR},
+			</if>
+			<if test="url_2!= null">
+				url_2 = #{url_2,jdbcType=VARCHAR},
+			</if>
+			<if test="url_3!= null">
+				url_3 = #{url_3,jdbcType=VARCHAR},
+			</if>
+			<if test="url_4 != null">
+				url_4 = #{url_4,jdbcType=VARCHAR},
+			</if>
+			<if test="updateuser != null">
+				updateuser = #{updateuser,jdbcType=VARCHAR},
+			</if>
+			<if test="updatetime != null">
+				updatetime = now(),
+			</if>
+			<if test="enabled != null">
+				enabled = #{enabled,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where id = #{id} 
+	</update>
+</mapper>

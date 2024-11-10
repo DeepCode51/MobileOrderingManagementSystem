@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xe.demo.mapper.BXCompanyMapper">
+	<resultMap id="BaseResultMap" type="com.xe.demo.model.BXCompany">
+		<id column="id" jdbcType="INTEGER" property="id" />
+		<result column="companyName" jdbcType="VARCHAR" property="companyName" />
+		<result column="phone" jdbcType="VARCHAR" property="phone" />
+		<result column="enabled" jdbcType="VARCHAR" property="enabled" />
+		<result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+		<result column="createuser" jdbcType="VARCHAR" property="createuser" />
+		<result column="updatetime" jdbcType="TIMESTAMP" property="updatetime" />
+		<result column="updateuser" jdbcType="VARCHAR" property="updateuser" />
+		<result column="remark" jdbcType="VARCHAR" property="remark" />
+	</resultMap>
+	
+	<select id="queryCompanyById" resultMap="BaseResultMap">
+		select id,
+			companyName,
+			phone,
+			enabled,
+			DATE_FORMAT(createtime, '%Y-%m-%d %H:%i:%s') createtime,
+			(select username from auth_user u where u.enabled = '1' and u.id=t.createuser) createuser,
+			DATE_FORMAT(updatetime, '%Y-%m-%d %H:%i:%s') updatetime,
+			(select username from auth_user u where u.enabled = '1' and u.id=t.updateuser) updateuser,
+			remark
+		from bxcompany t
+		where id = #{id} and enabled = '1'
+	</select>
+	
+	<select id="queryByCompanyName" resultMap="BaseResultMap">
+		select id,
+			companyName,
+			phone,
+			enabled,
+			DATE_FORMAT(createtime, '%Y-%m-%d %H:%i:%s') createtime,
+			(select username from auth_user u where u.enabled = '1' and u.id=t.createuser) createuser,
+			DATE_FORMAT(updatetime, '%Y-%m-%d %H:%i:%s') updatetime,
+			(select username from auth_user u where u.enabled = '1' and u.id=t.updateuser) updateuser,
+			remark
+		from bxcompany t
+		where companyName = #{companyName} and enabled = '1'
+	</select>
+	
+	<select id="queryList" resultMap="BaseResultMap">
+		select id,
+			companyName,
+			phone,
+			enabled,
+			DATE_FORMAT(createtime, '%Y-%m-%d %H:%i:%s') createtime,
+			(select username from auth_user u where u.enabled = '1' and u.id=t.createuser) createuser,
+			DATE_FORMAT(updatetime, '%Y-%m-%d %H:%i:%s') updatetime,
+			(select username from auth_user u where u.enabled = '1' and u.id=t.updateuser) updateuser,
+			remark
+		from bxcompany t 
+		where enabled = '1'
+		<if test="null != company.companyName"> and locate(#{company.companyName}, t.companyName) > 0</if>
+		order by createtime desc
+	</select>
+	
+	<insert id="insert" parameterType="com.xe.demo.model.BXCompany">
+		insert into bxcompany(companyName,phone,createuser,createtime,enabled)
+		values(#{companyName},#{phone},#{createuser},now(),'1')
+	</insert>
+	
+	<update id="update" parameterType="com.xe.demo.model.BXCompany">
+		update bxcompany
+		<set>
+			<if test="companyName != null">
+				companyName = #{companyName,jdbcType=VARCHAR},
+			</if>
+			<if test="phone != null">
+				phone = #{phone,jdbcType=VARCHAR},
+			</if>
+			<if test="updateuser != null">
+				updateuser = #{updateuser,jdbcType=VARCHAR},
+			</if>
+			<if test="updatetime != null">
+				updatetime = now(),
+			</if>
+			<if test="enabled != null">
+				enabled = #{enabled,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where id = #{id} 
+	</update>
+</mapper>

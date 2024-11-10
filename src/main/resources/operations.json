@@ -1,0 +1,5 @@
+[
+    {"opCode":"01","opName":"权限管理", "opHref":"/admin/auth","opSeq":1,"opDesc":"权限管理菜单"},
+    {"opCode":"02","opName":"店铺管理", "opHref":"/bx/cp","opSeq":1,"opDesc":"店铺管理菜单"},
+    {"opCode":"03","opName":"日志管理", "opHref":"/admin/log","opSeq":1,"opDesc":"日志管理菜单"}
+]

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xe.demo.mapper.OrdersProdcutMapper">
+    <resultMap id="BaseResultMap" type="com.xe.demo.model.OrdersProduct">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="productId" jdbcType="INTEGER" property="productId" />
+        <result column="number" jdbcType="INTEGER" property="number" />
+        <result column="totalPrice" jdbcType="INTEGER" property="totalPrice" />
+        <result column="orderId" jdbcType="VARCHAR" property="orderId" />
+    </resultMap>
+
+    <insert id="addProductToOrderProdcut" parameterType="com.xe.demo.model.OrdersProduct">
+        insert into orders_product(productId,number,totalPrice,orderId)
+        values(#{productId},#{number},#{totalPrice},#{orderId})
+    </insert>
+
+    <select id="queryList" resultMap="BaseResultMap">
+        select op.id, op.productId, op.number ,op.totalPrice,op.orderId,p.name,p.price
+        from orders_product op,bxproducts p where  op.orderId = #{ordersProduct.orderId} and op.productId=p.id
+    </select>
+
+</mapper>

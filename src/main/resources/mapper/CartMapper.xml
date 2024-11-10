@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xe.demo.mapper.CartMapper">
+    <resultMap id="BaseResultMap" type="com.xe.demo.model.Cart">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="productId" jdbcType="INTEGER" property="productId" />
+        <result column="number" jdbcType="INTEGER" property="number" />
+        <result column="customerId" jdbcType="INTEGER" property="customerId" />
+        <result column="status" jdbcType="INTEGER" property="status" />
+    </resultMap>
+
+    <select id="queryList" resultMap="BaseResultMap">
+        select c.id, c.productId, c.number ,c.customerId,c.status,p.name,p.price,p.pic_1
+        from cart c,bxproducts p where c.status = 0 and c.productId=p.id
+        <if test="null != cart.customerId"> and c.customerId = #{cart.customerId}</if>
+    </select>
+
+    <update id="updateCartStatus">
+		update cart c set status=1 where c.customerId = #{customerId}
+	</update>
+
+    <update id="updateCartNumber">
+		update cart c set number=number +1 where c.productId = #{productId}
+	</update>
+
+    <insert id="addProductToCart" parameterType="com.xe.demo.model.Cart">
+        insert into cart(productId,number,customerId,status)
+        values(#{productId},#{number},#{customerId},0)
+    </insert>
+
+    <select id="findOrderByOrderId" resultMap="BaseResultMap">
+		select
+			*
+		from orders t
+		where t.orderId = #{orderId}
+	</select>
+
+    <select id="findCartByProductId" resultMap="BaseResultMap">
+		select
+			*
+		from cart t
+		where t.productId = #{productId} and t.status = 0
+	</select>
+</mapper>

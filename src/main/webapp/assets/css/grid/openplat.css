@@ -1,0 +1,386 @@
+@charset "utf-8";
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video {margin:0;padding:0;border:0;/*font-size:100%;*/vertical-align:middle;}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {display:block;}/*HTML5 new tags*/
+ol,ul {list-style:none;}
+blockquote,q {quotes:none;}
+blockquote:before,blockquote:after,q:before,q:after {content:'';content:none;}
+table{border-collapse:collapse;border-spacing:0;}
+body{ width:100%; height:100%; font-size:13px}
+b{ font-weight:bold;}
+a{ text-decoration:none;bblr:expression(this.onFocus=this.blur()); outline:none; color:#1f73b4;}
+.clear{ clear:both;}
+.hide{ display:none;}
+/*.openbg {overflow:auto; position:relative;width:100%; margin:0px; background:url(http://yufa.21tb.com/webos/images/openplat/bg.jpg) repeat;}
+.openBody{width:922px; margin:0 auto; padding:0; position:relative;}
+.openHeadbg{ width:100%;background:url(http://yufa.21tb.com/webos/images/openplat/headbg.png) 0 0 repeat-x; height:103px;*//*position:fixed; top:0; left:0; z-index:2;*//*}
+.openbanner{ background:url(http://yufa.21tb.com/webos/images/openplat/banner.jpg) 0 0 no-repeat; margin:0 auto; width:1120px; height:100%;}
+.openWrap{width:922px; margin:0 auto;}
+.openLogo{ display:inline-block; background:url(http://yufa.21tb.com/webos/images/openplat/logo.png) 0 0 no-repeat;  margin-top:30px; width:250px; height:40px; float:left}
+.openFoot{ width:100%;margin:0px auto; margin-bottom:20px; color:#666; text-align:center; display:block;*margin-top:-10px;}
+.openFoot ul{ *//*overflow:hidden;*//* clear:both; margin:0 auto; padding-left:250px;}
+.openFoot ul li{ float:left; margin:15px 0px 0px 0px;}
+.openFoot ul li a{ display:inline-block;}
+.openFoot ul li i{ display:inline-block; background:#1f73b4; width:1px; height:10px; margin:0px 15px;}
+.openFoot .copyright{ clear:both;}
+.openFoot span{ margin-left:30px;}
+.openHeadNav{ display:inline-block; margin:40px; float:left}
+.openHeadNav li{ float:left; font-size:14px; margin:0px 15px;}
+.openHeadNav li.cur a{ color:#82ceff;}
+.openHeadNav li a{ color:#fff;}
+.openHeadNav li a:hover{ color:#82ceff}
+.openHeadNav li i.more{background:url(http://yufa.21tb.com/webos/images/openplat/arrow.png) 0 8px no-repeat; height:18px; width:10px; display:inline-block; margin-left:5px;}
+.openUserinfo { float:right; font-size:12px; margin:40px auto;}
+.openUserinfo img{ width:20px; height:20px; float:left; margin-right:5px;}
+.openUserinfo span.name{ line-height:20px; float:left; margin-right:5px; word-break:break-all;word-wrap:break-word; max-width:75px; color:#fffefe;}
+.openUserinfo i.more{ background:url(http://yufa.21tb.com/webos/images/openplat/arrow.png) 0 8px no-repeat; height:18px; width:10px; float:left}
+.openContent{ width:100%; *//*position:relative; padding-top:103px;*padding-top:113px;*//*}
+.openBread{ margin:10px 0px; overflow:hidden}
+.openBread h2{ color:#333; font-size:24px; display:inline; float:left; margin-left:20px; font-weight:bold}
+.openSearchPanel{ margin-top:5px; float:left; margin-left:100px; position:relative; overflow:hidden; background:url(http://yufa.21tb.com/webos/images/openplat/searchbar.png) 0 0 no-repeat; width:413px; height:26px;}
+.openSearchPanel input{width:365px; padding:0px 5px; border:none; height:26px; line-height:26px; color:#999; background:none; position:absolute; left:0px;top:0}
+.openSearchPanel a{width:38px; border:none; display:block; height:26px; float:left; text-indent:-100em; position:absolute; right:0; top:0;}
+.openContentTopbg{ width:100%; background:url(http://yufa.21tb.com/webos/images/openplat/conttop.png) left top no-repeat; height:7px; float:left; clear:both}
+.openContentBottombg{ width:100%; background:url(http://yufa.21tb.com/webos/images/openplat/contbottom.png) left bottom no-repeat; height:7px; float:left; clear:both}
+.openContentPannel{ width:922px; background:url(http://yufa.21tb.com/webos/images/openplat/contmiddle.png) left top repeat-y; float:left; clear:both;}
+.openContentLeft{ float:left; width:200px;}
+.openContentRight{ float:right; width:690px; margin:0px 15px; display:inline;}
+.openMenuPanel{ width:200px; overflow:hidden}
+.openMenuPanel ul{ overflow:hidden; *//*border-bottom:1px solid #d8d8d8;*//* width:180px; margin:5px auto; padding-bottom:5px;}
+.openMenuPanel ul li{width:160px; padding:2px 10px; line-height:30px; overflow:hidden}
+.openMenuPanel ul li em{height:16px; margin-top:7px; padding-left:22px;display:inline-block; float:left}
+.openMenuPanel ul li em.openHomeicon{ background:url(http://yufa.21tb.com/webos/images/openplat/menuicon1.png) 0 0 no-repeat; margin-top:6px; }
+.openMenuPanel ul li em.openPlatinfoicon{ background:url(http://yufa.21tb.com/webos/images/openplat/menuicon2.png) 0 0 no-repeat}
+.openMenuPanel ul li em.openGuideicon{ background:url(http://yufa.21tb.com/webos/images/openplat/menuicon3.png) 0 0 no-repeat}
+.openMenuPanel ul li em.openTechicon{ background:url(http://yufa.21tb.com/webos/images/openplat/menuicon4.png) 0 0 no-repeat}
+.openMenuPanel ul li em.openAuditicon{ background:url(http://yufa.21tb.com/webos/images/openplat/menuicon5.png) 0 0 no-repeat}
+.openMenuPanel ul li em.openDownloadicon{ background:url(http://yufa.21tb.com/webos/images/openplat/menuicon6.png) 0 0 no-repeat}
+.openMenuPanel ul li em.openQuestionicon{ background:url(http://yufa.21tb.com/webos/images/openplat/menuicon7.png) 0 0 no-repeat}
+.openMenuPanel ul li span.text{ color:#333; font-size:14px; float:left;}
+.openMenuPanel ul li a{ cursor:pointer}
+.openMenuPanel ul li i.nav_arr,.openMenuPanel ul li i.todown{ background:url(http://yufa.21tb.com/webos/images/openplat/arrow.png) 0 -7px no-repeat; margin-top:8px; width:10px; margin-left:5px; height:10px; float:left; display:inline-block;}
+.openMenuPanel ul li i.todown{ background-position:0 -20px}
+.openMenuPanel ul.childlist{ margin:5px 0px; width:180px; margin-left:-10px; overflow:hidden; border-bottom:1px solid #ededed; padding-bottom:5px;}
+.openMenuPanel ul.childlist li{ width:140px; line-height:20px; padding:5px 33px;}
+.openMenuPanel ul.childlist li.cur,.openMenuPanel ul.childlist li:hover{ background:#e6e9ec;}
+.openMenuPanel ul.childlist li a{ color:#1f73b4;}
+.openMenuPanel ul.childlist li a:hover{ text-decoration:none;}
+.openContentRight h3{ border-bottom:1px solid #d8d8d8; color:#333; font-size:16px; font-weight:bold; padding:5px; position:relative;}
+.openContentRightMain,.openDetailRightMain{ margin:10px; overflow:hidden; color:#999;}
+.openDetailRightMain{ color:#333; margin:0px; padding-bottom:100px;}
+.openDetailRightMain .cont{ padding:0px 10px; overflow:hidden}
+.openDetailRightMain h4{ background:#e2eaf3;padding:7px 5px; color:#333; margin:15px 0px; font-weight:bold; overflow:hidden}
+.openDetailRightMain .contLeft{}
+.openDetailRightMain .directoryRight{ float:right; border:1px solid #dbd9d9; margin-right:0px; width:190px;}
+.openDirectoryTab{ float:right;background:#fff; margin-left:10px; margin-top:15px;}
+.openDirectoryTab tr td{width:190px; border:1px solid #dbd9d9; vertical-align:top; padding-bottom:5px;}
+.openTocTitle{ overflow:hidden; padding-top:5px; width:100%;}
+.openTocTitle h2{ color:#333; font-weight:bold; float:left; padding-left:10px;}
+.openTocTitle .toggle{ float:right; padding-right:10px; color:#1f73b4;}
+.openDirectoryTab ul{ margin:5px 10px 0px 10px;}
+.openDirectoryTab ul li{ padding-bottom:5px;}
+
+
+.openContentRightMain a{ margin:0px 5px;}
+.openAnchorPanel{ margin:5px 0px;}
+.openAnchorPanel ul{ overflow:hidden; width:100%;margin-right:-20px; margin-left:0px;}
+.openAnchorPanel ul li{ width:124px; height:29px; margin-right:10px; float:left;margin-bottom:7px; margin-left:0px;}
+.openAnchorPanel ul li a{ height:27px; text-align:center; line-height:30px; background:url(http://yufa.21tb.com/webos/images/openplat/tagbg.png) 0 0 repeat-x; border:1px solid #c9d7e2; display:block; margin:0px;}
+.openHighlevelicon{ background:url(http://yufa.21tb.com/webos/images/openplat/mark3.png) 0 0 no-repeat; width:13px; height:13px; display:inline-block; margin:0px 2px;}
+.openScopeicon{ background:url(http://yufa.21tb.com/webos/images/openplat/mark1.png) 0 0 no-repeat; width:13px; height:13px; display:inline-block; margin:0px 2px;}
+.openNewicon{ background:url(http://yufa.21tb.com/webos/images/openplat/mark2.png) 0 0 no-repeat; width:13px; height:13px; display:inline-block; margin:0px 2px;}
+.openLockicon{ background:url(http://yufa.21tb.com/webos/images/openplat/lockicon.png) 0 0 no-repeat; width:13px; height:15px;  display:inline-block; margin:0px 2px;}
+.openApiTab{ width:100%;border:1px solid #dbd9d9;text-align:left; margin:20px auto;}
+.openApiTab tr th{ background:url(http://yufa.21tb.com/webos/images/openplat/thbg.png) 0 0 repeat-x; height:31px; line-height:31px; border-bottom:1px solid #dbd9d9; text-align:left; margin-top:1px; padding-left:10px; color:#333; font-size:14px; font-weight:bold;}
+.openApiTab tr td{ color:#333; padding:8px 10px; border-right:1px solid #dbd9d9; border-bottom:1px solid #dbd9d9; line-height:13px;}
+.openPlus_area{ text-align:right; width:100%; border-top:1px solid #d8d8d8; color:#333; padding-top:10px;}
+.openContentRight a.returnback{ background:url(http://yufa.21tb.com/webos/images/openplat/returnbackicon.png) 0 4px no-repeat; padding-left:20px; font-size:12px; font-weight:bold; position:absolute; right:10px; bottom:10px;}
+.openApiTab .childtab{ padding:0;width:570px; border-right:none;}
+.openApiTab .childtab table{ width:100%; table-layout:fixed; border:none;word-wrap:break-word; word-break:break-all;}
+.openApiTab .childtab table td{ border-right:none; border-left:1px solid #dbd9d9;text-align:left; line-height:18px; }
+.openApiTab td.firstd{ text-align:center; font-size:14px; width:100px; border-right:0px;}
+*//**����***//*
+.openReturnback{ position:fixed;right:-35px; bottom:150px; display:none;}
+.openReturnback_a,.openReturnback_a:hover{ background:url(http://yufa.21tb.com/webos/images/openplat/returnback.png) left top no-repeat; display:block; width:35px; height:104px; text-indent:-100em;}
+.openReturnback_a:hover{ opacity:.7;filter:alpha(opacity=70);}
+
+.openIndexApp{ border-bottom:1px solid #d8d8d8; padding-bottom:15px;overflow:hidden;}
+.openIndexApp ul{ overflow:hidden; margin-top:10px;}
+.openIndexApp ul li{ float:left; width:230px;}
+.openIndexApp ul li h2{ font-size:16px; padding-bottom:5px; font-weight:bold;}
+.openIndexApp ul li .content{ line-height:20px; color:#333;}
+.openIndexApp ul li.platpanel{ background:url(http://yufa.21tb.com/webos/images/openplat/index_03.png) 0 28px no-repeat; padding-left:70px; margin-left:20px;}
+.openIndexApp ul li.mobilepanel{ background:url(http://yufa.21tb.com/webos/images/openplat/index_05.png) 0 25px no-repeat; padding-left:65px; margin-left:50px;}
+
+.openIndexEntrylist{overflow:hidden;}
+.openIndexEntrylist ul{ overflow:hidden; margin-top:10px; margin-bottom:-1px;}
+.openIndexEntrylist ul li{*//* border-bottom:1px dashed #c1c0c0;*//* background:url(http://yufa.21tb.com/webos/images/openplat/bottombg.png) 0 bottom repeat-x; padding:10px 10px 10px 0px;}
+.openIndexEntrylist ul li a.title{ color:#1f73b4; font-size:12px; font-weight:bold; padding-bottom:10px; display:block;}
+.openIndexEntrylist ul li .content{ line-height:20px; color:#666;}
+.openIndexEntrylist ul li .guidepanel{ background:url(http://yufa.21tb.com/webos/images/openplat/index_09.png) 20px 10px no-repeat; padding-left:90px; }
+.openIndexEntrylist ul li .apidocpanel{background:url(http://yufa.21tb.com/webos/images/openplat/index_11.png) 20px 10px no-repeat; padding-left:90px;}
+.openIndexEntrylist ul li .sdkpanel{background:url(http://yufa.21tb.com/webos/images/openplat/index_13.png) 20px 10px no-repeat; padding-left:90px; border-bottom:0px;}
+.openSdkDirectoryTab{ width:100%; background-color:#f9f9f9; border:1px solid #ececec; margin:10px 0px;}
+.openSdkDirectoryTab .toggle{ float:left; margin-left:5px; line-height:20px;}
+.openSdkDirectoryTab .openTocTitle h2{ line-height:22px; font-size:14px;}
+.openSdkDirectoryTab .openTocTitle{ padding:5px 0px;}
+.openSdkDirectoryTab ul{ overflow:hidden; margin-bottom:10px;}
+.openSdkDirectoryTab ul li{ float:left; width:205px; margin:2px 10px; font-weight:normal;}
+.openAnchorSlide{margin:5px 0px}
+.openAnchorSlide .slideLink{margin-left:0px; color:#333; font-weight:bold; background:url(http://yufa.21tb.com/webos/images/openplat/rancle.png) right -8px no-repeat; padding-right:12px; margin-top:10px; display:inline-block;}
+.openAnchorSlide .cur{color:#0779c3; font-weight:bold;  background:url(http://yufa.21tb.com/webos/images/openplat/rancle.png) right 7px no-repeat; padding-right:12px;}
+
+.openCreatbtn{ display:block; position:absolute;top:-10px;*top:0; right:22px; background:url(http://yufa.21tb.com/webos/images/openplat/creatbtn.png) 0 0 no-repeat; width:118px; height:40px; text-indent:-100em;}
+.openCreatappcont .openContentTopbg{ background:url(http://yufa.21tb.com/webos/images/openplat/contbg.png) 0 0 no-repeat; width:100%; height:7px;}
+.openCreatappcont .openContentBottombg {background:url(http://yufa.21tb.com/webos/images/openplat/contbg.png) 0 bottom no-repeat; width:100%; height:7px;}
+.openCreatappcont .openContentPannel { background:url(http://yufa.21tb.com/webos/images/openplat/contbg.png) right top repeat-y; width:922px;}
+.openBreadlist{ margin-left:40px; float:left;}
+.openBreadlist a{ line-height:38px; background:url(http://yufa.21tb.com/webos/images/openplat/breadrancle.png) right 2px no-repeat; padding-right:12px;}
+.openCreatappcont .openContentPannel{ overflow:hidden;}
+.openCreatappcont .openContentPannel .titlepanel{border-bottom:1px solid #e0e0e0; margin:10px 20px; padding-bottom:5px; overflow:hidden;}
+.openCreatappcont .openContentPannel .titlepanel h3{ color:#333; font-size:14px; font-weight:bold; display:inline; } 
+.openCreatappcont .openContentPannel .titlepanel a{ float:right;}
+.openContentform{ width:90%; margin:20px auto;}
+.openContentform .form-cell{ overflow:hidden; line-height:25px; margin-bottom:10px;}
+.openContentform .form-cell label{ width:150px; text-align:right; color:#666; display:inline-block; line-height:25px; float:left;}
+.openContentform .form-cell input[type="text"]{ background:none; border:1px solid #cfcfcf; width:250px; height:25px; line-height:25px; padding:0px 5px; float:left; margin-right:10px;}
+.openContentform .form-cell span{ display:inline-block; float:left; color:#999; max-width:330px; word-wrap:break-word; word-break:break-all;}
+.openContentform .form-cell .requidworn{ float:left; background:url(http://yufa.21tb.com/webos/images/openplat/wornicon.png) 0 3px no-repeat; padding-left:20px; color:#c21a00}
+.openContentform .form-cell textarea{ width:260px; height:200px; border:1px solid #cfcfcf; background:none; overflow:auto; float:left; margin-right:10px;}
+.openContentform .form-cell .radioDiv{float:left; line-height:25px; width:262px; margin-right:10px}
+.openContentform .form-cell .okBtn,.openContentform .form-cell .cancelBtn{ border:none; background:url(http://yufa.21tb.com/webos/images/openplat/btn.jpg) 0 0 no-repeat; text-indent:-100em; width:88px; height:38px;}
+.openContentform .form-cell .cancelBtn{ background-position:right 0;}
+.openAppcenterhead{ margin:15px 20px;}
+.openAppcentertitle{ background:url(http://yufa.21tb.com/webos/images/openplat/appheadbg.png) 0 0 repeat-x; height:34px; border:1px solid #d3d3d3; margin:0px 20px 10px 20px;}
+.openAppcentertitle h2{ background:url(http://yufa.21tb.com/webos/images/openplat/sysicon.png) 10px 8px no-repeat; color:#666; font-size:14px; font-weight:bold; padding-left:30px; float:left; line-height:35px;}
+.openAppcentertitle a{ border:none; background:url(http://yufa.21tb.com/webos/images/openplat/bluebtn.png) 0 0 no-repeat; width:72px; height:30px; margin-top:3px; margin-right:20px; line-height:28px; text-align:center; font-size:12px; color:#fff; font-weight:bold; float:right; display:block;}*/
+.openAppGrid{min-height: 400px; margin:10px 20px;}
+.openAppGrid .sgrid { table-layout:fixed; overflow:hidden}
+.openAppGrid .sgrid .sgrid-panel{
+	padding: 3px;
+    background: #eee;
+    border-radius: 3px;
+}
+
+@media screen and (max-width: 1600px) {
+	.openAppGrid .sgrid .sgrid-panel{
+
+	    overflow-x: scroll;
+		height: auto;
+		width: 100%;
+	}
+}
+
+.openAppGrid .sgrid .sgrid-panel table{
+    background: #fff;
+    width:100%;
+}
+.openAppGrid .sgrid .sgrid-panel .sgrid-tr-header th{ text-align:left; background-color:#f2f2f2; border:1px solid #dcdcdc; line-height:40px; color:#666; padding:0px 3px;}
+.openAppGrid .sgrid .sgrid-panel .sgrid-tr-header th{background-color: #eaeaea;
+    background-image: -moz-linear-gradient(#fafafa, #eaeaea);
+    background-image: -webkit-linear-gradient(#fafafa, #eaeaea);
+    background-image: linear-gradient(#fafafa, #eaeaea);
+    background-repeat: repeat-x;}
+.openAppGrid .sgrid-sortabel{cursor: pointer}
+.openAppGrid .sgrid .sgrid-sortabel-desc{background: url(../../../images/hmenu-desc.gif) no-repeat center right;}
+.openAppGrid .sgrid .sgrid-sortabel-asc{background: url(../../../images/hmenu-asc.gif) no-repeat center right;}
+.tbc-checkbox{width:18px; height: 20px;background: url(../../../images/checkbox.png) 0 -8px   no-repeat;display: inline-block;color: #444;cursor:pointer}
+.tbc-checkbox.checked{width:18px; height: 20px;background: url(../../../images/checkbox_check.png) 0 -8px   no-repeat;display: inline-block;color: #444;cursor:pointer}
+.openAppGrid .sgrid table td .datalist-content{ white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.openAppGrid .sgrid .sgrid-panel .datalist-content .auditname{ white-space:normal; word-wrap:word-break; word-break:break-all;}
+.openAppGrid .sgrid .sgrid-panel .sgrid-tr-body td { padding:3px 10px; color:#666;border:1px solid #dcdcdc; }
+/*.openLoginpanel{ overflow:hidden; float:left; margin:10px;}
+.openLoginpanel .title,.openRegistpanel .title{ color:#666; font-weight:bold; margin-bottom:10px;}
+.openLoginpanel .inputbg,.openLoginpanel .bluebg{ background:url(http://yufa.21tb.com/webos/images/openplat/logininput.png) 0 0 no-repeat; width:215px; height:35px; display:block; margin-bottom:12px;}
+.openLoginpanel .bluebg{ background-position:0 -36px;}
+.openLoginpanel .inputbg input{ width:195px; margin:5px 15px 5px 5px; padding:0px 5px; background:none; border:none; line-height:25px; height:25px;}
+.openLoginpanel .txtpoint { color:#e00101; display:block; margin-left:5px; margin-top:10px;}
+.openLoginpanel .loginbtn{ background:url(http://yufa.21tb.com/webos/images/openplat/loginbtn.png) 0 0 no-repeat; width:90px; height:35px; border:none; color:transparent;margin-left:1px; *margin-left:-7px; margin-top:5px;}
+.openLoginDialog .split{ float:left; margin:10px; background:url(http://yufa.21tb.com/webos/images/openplat/split.jpg) 0 0 no-repeat; width:8px; height:168px;}
+.openRegistpanel { float:left; margin:10px; overflow:hidden;}
+.openRegistpanel .registbtn{ background:url(http://yufa.21tb.com/webos/images/openplat/loginbtn.png) 0 bottom no-repeat; width:90px; height:35px; border:none; color:transparent; margin:10px 0px 10px 40px;}
+.openLoginDialog{ padding:10px 10px 0px 10px;}
+.openLogindialogcls{ background:none;box-shadow:none;}
+.openLogindialogcls .vfdialog-head{ border:none; background:url(http://yufa.21tb.com/webos/images/openplat/dialogtop.png) 0 0 no-repeat;width:529px;height:10px;*margin-bottom:-5px; display:block;}
+.openLogindialogcls .vfdialog-body{ border:none;box-shadow:none; background:none;*//* background:url(../images/openplat/dialogcont.png) 0 0 repeat-y; width:529px;*//*}
+.openLogindialogcls .vfdialog-cont{ border-top:none; background-color:transparent; width:529px; overflow:hidden;}
+.openLogindialogcls .vfdialog-footer{border:none;*//* background:url(../images/openplat/dialogbottom.png) 0 0 no-repeat;*//* width:529px;height:10px; padding:0; }
+.openLogindialogcls .vfdialog-footer button{ display:none;}
+.openLogindialogcls .vfdialog-close{ background-color:transparent; background:url(http://yufa.21tb.com/webos/images/openplat/close.png) 0 0 no-repeat; width:15px; height:15px; border:none; text-indent:-100em; top:10px; right:10px;box-shadow:none;}
+.openLoginDialogHead{background:url(http://yufa.21tb.com/webos/images/openplat/dialogtop.png) 0 0 no-repeat; width:529px; height:10px;}
+.openLoginDialog{background:url(http://yufa.21tb.com/webos/images/openplat/dialogcont.png) 0 0 repeat-y; width:509px; overflow:hidden;}
+.openLoginDialogFoot{background:url(http://yufa.21tb.com/webos/images/openplat/dialogbottom.png) 0 0 no-repeat; width:529px;height:10px;}*/
+.pagination-panel-outer{padding: 15px 0;zoom: 1;overflow: hidden}
+.pagination-panel-outer .spagination{float: right}
+.pagination-panel-outer .pag-tool{float: left;margin-left: 5px;display:inline;}
+.pagination-panel-outer .pag-tool span{display: inline-block;line-height: 26px}
+.pagination-panel-outer .pag-page-size{width: 65px;height:26px;padding: 1px 2px}
+.pagination-panel-outer .pag-go-val{height: 26px;width: 36px;margin-left: 5px;padding: 0 3px 0 3px;}
+.pag-page-size-panel{padding-top: 2px;}
+.pag-page-size-panel .combo-text{width:30px!important;height: 20px; line-height: 20px;float: left;}
+.pagination-panel-outer .pag-page-size-panel span{line-height:1.6;}
+.pagination-panel-outer .pag-page-size-panel span.combo{display:block;/*width:43px;*/height:21px;}
+.pagination-panel-outer .pag-page-size-panel span.combo span{display: block;float: left;}
+.pagination-panel-outer .pag-tool .btn,
+.pagination-panel-outer .pag-tool .btn:hover{
+    border-color: #1a7ab9;
+	border-bottom-color: #16689e;
+	background: #1d89cf !important;
+	background-image: -webkit-linear-gradient(top,#1e8cd3 0,#1a7ab9 100%);
+	background-image: linear-gradient(to bottom,#1e8cd3 0,#1a7ab9 100%);
+	background-repeat: repeat-x;
+	color: #fff;
+}
+
+
+.pagination {
+    margin: 7px  0;
+    display: inline-block;
+    float: right;
+    overflow: hidden
+}
+
+.pagination a, .pagination span {
+    position: relative;
+    float: left;
+    padding: 3px 10px;
+    color: #555;
+    font-size: 13px;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #fff;
+    background-color: #eaeaea;
+    background-image: -moz-linear-gradient(#fafafa, #eaeaea);
+    background-image: -webkit-linear-gradient(#fafafa, #eaeaea);
+    background-image: linear-gradient(#fafafa, #eaeaea);
+    background-repeat: repeat-x;
+    border: 1px solid #ddd;
+    border-bottom: 1px solid #c5c5c5
+}
+
+.pagination a+a, .pagination a+span, .pagination span+a, .pagination span+span {
+    margin-left: -1px;
+    box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.2)
+}
+
+.pagination a:first-child, .pagination span:first-child {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px
+}
+
+.pagination a:last-child, .pagination span:last-child {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px
+}
+
+.pagination a:hover, .pagination a:active, .pagination span:hover, .pagination span:active {
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+    background-color: #3072b3;
+    background-image: -moz-linear-gradient(#599bdc, #3072b3);
+    background-image: -webkit-linear-gradient(#599bdc, #3072b3);
+    background-image: linear-gradient(#599bdc, #3072b3);
+    background-repeat: repeat-x;
+    border-color: #2a65a0
+}
+
+.pagination a:active, .pagination span:active {
+    background-color: #599bdc;
+    background-image: -moz-linear-gradient(#3072b3, #599bdc);
+    background-image: -webkit-linear-gradient(#3072b3, #599bdc);
+    background-image: linear-gradient(#3072b3, #599bdc);
+    background-repeat: repeat-x
+}
+
+.pagination a.current, .pagination a.current:hover, .pagination span.current, .pagination span.current:hover {
+    color: #fff;
+    font-weight: bold;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5);
+    background-color: #9e9e9e;
+    background-image: -moz-linear-gradient(#767676, #9e9e9e);
+    background-image: -webkit-linear-gradient(#767676, #9e9e9e);
+    background-image: linear-gradient(#767676, #9e9e9e);
+    background-repeat: repeat-x;
+    border-color: #686868
+}
+
+.pagination a:hover, .pagination a:active, .pagination a.current, .pagination a.current:hover, .pagination span:hover, .pagination span:active, .pagination span.current, .pagination span.current:hover {
+    z-index: 2;
+    box-shadow: none
+}
+
+.pagination a.disabled, .pagination a.disabled:hover, .pagination a.gap, .pagination a.gap:hover, .pagination span.disabled, .pagination span.disabled:hover, .pagination span.gap, .pagination span.gap:hover {
+    color: #bbb;
+    cursor: default;
+    text-shadow: none;
+    background-color: #eaeaea;
+    background-image: -moz-linear-gradient(#fafafa, #eaeaea);
+    background-image: -webkit-linear-gradient(#fafafa, #eaeaea);
+    background-image: linear-gradient(#fafafa, #eaeaea);
+    background-repeat: repeat-x;
+    border-color: #ddd #ddd #c5c5c5
+}
+
+.pagination a.prev_page, .pagination a.next_page, .pagination span.prev_page, .pagination span.next_page {
+    font-size: 9px;
+}
+
+.pagination.ajax_paginate {
+    display: block
+}
+
+.pagination.ajax_paginate a {
+    float: none;
+    display: block;
+    padding: 6px;
+    text-align: center
+}
+
+.pagination.ajax_paginate.loading a {
+    text-indent: -3000px;
+    background-color: #eaeaea;
+    background-image: url("https://assets.github.com/images/spinners/octocat-spinner-16px.gif?f265903b");
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-color: #c5c5c5
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 2), screen and (max--moz-device-pixel-ratio: 2) {
+    .pagination.ajax_paginate.loading a {
+        background-image: url("https://assets.github.com/images/spinners/octocat-spinner-32.gif?9f31005e");
+        background-size: 16px auto
+    }
+}
+
+.col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9{
+    padding-bottom: 11px;
+}
+#demo-settings-toggler{opacity:0.4}
+.open #demo-settings-toggler, #demo-settings-toggler:hover{opacity:1}
+
+
+
+/*     定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸  
+    ::-webkit-scrollbar  
+    {  
+        width: 10px;  
+        height: 10px;  
+        background-color: #F5F5F5;  
+    }  
+      
+    定义滚动条轨道 内阴影+圆角  
+    ::-webkit-scrollbar-track  
+    {  
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);  
+        border-radius: 10px;  
+        background-color: #F5F5F5;  
+    }  
+      
+    定义滑块 内阴影+圆角  
+    ::-webkit-scrollbar-thumb  
+    {  
+        border-radius: 10px;  
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);  
+        background-color: #555;  
+    }  
+
+ */
+

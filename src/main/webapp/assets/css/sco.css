@@ -1,0 +1,8 @@
+/*@end search */
+/*@group errors */
+ .message {
+  color: #d60000;
+      margin-left: 5px;
+    clear: none;
+}
+/*@end errors */

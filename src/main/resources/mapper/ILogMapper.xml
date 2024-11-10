@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xe.demo.mapper.ILogMapper">
+	<resultMap id="BaseResultMap" type="com.xe.demo.model.ILog">
+		<id column="id" jdbcType="INTEGER" property="id" />
+		<result column="username" jdbcType="VARCHAR" property="username" />
+		<result column="type" jdbcType="INTEGER" property="type" />
+		<result column="url" jdbcType="VARCHAR" property="url" />
+		<result column="method" jdbcType="VARCHAR" property="method" />
+		<result column="params" jdbcType="VARCHAR" property="params" />
+		<result column="requestip" jdbcType="VARCHAR" property="requestip" />
+		<result column="exclass" jdbcType="VARCHAR" property="exclass" />
+		<result column="detail" jdbcType="VARCHAR" property="detail" />
+		<result column="description" jdbcType="VARCHAR" property="description" />
+		<result column="oper_date" jdbcType="VARCHAR" property="operDate" />
+	</resultMap>
+</mapper>

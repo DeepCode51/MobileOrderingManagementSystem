@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xe.demo.mapper.CustomerMapper">
+	<resultMap id="BaseResultMap" type="com.xe.demo.model.Customer">
+		<id column="id" jdbcType="INTEGER" property="id" />
+		<result column="stuNumber" jdbcType="VARCHAR" property="stuNumber" />
+		<result column="password" jdbcType="CHAR" property="password" />
+		<result column="email" jdbcType="VARCHAR" property="email" />
+		<result column="phoneNo" jdbcType="VARCHAR" property="phoneNo" />
+		<result column="address" jdbcType="VARCHAR" property="address" />
+	</resultMap>
+	
+	<insert id="register" useGeneratedKeys="true" keyProperty="id">
+		insert into customer(customerName,stuNumber, password,email,phoneNo,address)
+		values(#{customerName},#{stuNumber}, #{password},#{email},#{phoneNo},#{address})
+	</insert>
+
+	<select id="queryByCustomerId" resultMap="BaseResultMap">
+		select 
+			c.id, c.stuNumber, c.password,c.email,c.phoneNo,c.address,c.customerName
+			 from customer c
+		where c.id = #{customerId}
+	</select>
+
+	<select id="login" resultMap="BaseResultMap">
+		select
+			c.id, c.stuNumber, c.password,c.email,c.phoneNo,c.address,c.customerName
+			 from customer c
+		where c.stuNumber = #{stuNumber} and c.password = #{password}
+	</select>
+
+</mapper>

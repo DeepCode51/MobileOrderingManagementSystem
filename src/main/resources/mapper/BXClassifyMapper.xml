@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xe.demo.mapper.BXClassifyMapper">
+	<resultMap id="BaseResultMap" type="com.xe.demo.model.BXClassify">
+		<id column="id" jdbcType="INTEGER" property="id" />
+		<result column="name" jdbcType="VARCHAR" property="name" />
+		<result column="orderIndex" jdbcType="INTEGER" property="orderIndex" />
+		<result column="enabled" jdbcType="VARCHAR" property="enabled" />
+		<result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+		<result column="createuser" jdbcType="VARCHAR" property="createuser" />
+		<result column="updatetime" jdbcType="TIMESTAMP" property="updatetime" />
+		<result column="updateuser" jdbcType="VARCHAR" property="updateuser" />
+		<result column="remark" jdbcType="VARCHAR" property="remark" />
+	</resultMap>
+	
+	<select id="queryClassifyById" resultMap="BaseResultMap">
+		select id,
+			name,
+			orderIndex,
+			enabled,
+			DATE_FORMAT(createtime, '%Y-%m-%d %H:%i:%s') createtime,
+			(select username from auth_user u where u.enabled = '1' and u.id=t.createuser) createuser,
+			DATE_FORMAT(updatetime, '%Y-%m-%d %H:%i:%s') updatetime,
+			(select username from auth_user u where u.enabled = '1' and u.id=t.updateuser) updateuser,
+			remark
+		from bxclassify t
+		where id = #{id} and enabled = '1'
+	</select>
+	
+	<select id="queryByClassifyName" resultMap="BaseResultMap">
+		select id,
+			name,
+			orderIndex,
+			enabled,
+			DATE_FORMAT(createtime, '%Y-%m-%d %H:%i:%s') createtime,
+			(select username from auth_user u where u.enabled = '1' and u.id=t.createuser) createuser,
+			DATE_FORMAT(updatetime, '%Y-%m-%d %H:%i:%s') updatetime,
+			(select username from auth_user u where u.enabled = '1' and u.id=t.updateuser) updateuser,
+			remark
+		from bxclassify t
+		where name = #{name} and enabled = '1'
+	</select>
+	
+	<select id="queryList" resultMap="BaseResultMap">
+		select id,
+			name,
+			orderIndex,
+			enabled,
+			DATE_FORMAT(createtime, '%Y-%m-%d %H:%i:%s') createtime,
+			(select username from auth_user u where u.enabled = '1' and u.id=t.createuser) createuser,
+			DATE_FORMAT(updatetime, '%Y-%m-%d %H:%i:%s') updatetime,
+			(select username from auth_user u where u.enabled = '1' and u.id=t.updateuser) updateuser,
+			remark
+		from bxclassify t 
+		where enabled = '1'
+		<if test="null != classify.name"> and locate(#{classify.name}, t.name) > 0</if>
+		order by orderIndex
+	</select>
+	
+	<insert id="insert" parameterType="com.xe.demo.model.BXClassify">
+		insert into bxclassify(name,orderIndex,createuser,createtime,enabled)
+		values(#{name},#{orderIndex},#{createuser},now(),'1')
+	</insert>
+	
+	<update id="update" parameterType="com.xe.demo.model.BXClassify">
+		update bxclassify
+		<set>
+			<if test="name != null">
+				name = #{name,jdbcType=VARCHAR},
+			</if>
+			<if test="orderIndex != null">
+				orderIndex = #{orderIndex,jdbcType=INTEGER},
+			</if>
+			<if test="updateuser != null">
+				updateuser = #{updateuser,jdbcType=VARCHAR},
+			</if>
+			<if test="updatetime != null">
+				updatetime = now(),
+			</if>
+			<if test="enabled != null">
+				enabled = #{enabled,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where id = #{id} 
+	</update>
+</mapper>

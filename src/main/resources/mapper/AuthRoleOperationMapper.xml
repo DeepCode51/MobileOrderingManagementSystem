@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xe.demo.mapper.AuthRoleOperationMapper">
+	<resultMap id="BaseResultMap" type="com.xe.demo.model.AuthRoleOperation">
+		<id column="roleid" jdbcType="TINYINT" property="roleid" />
+		<id column="opid" jdbcType="INTEGER" property="opid" />
+	</resultMap>
+	
+	<insert id="batchInsert">
+		insert into auth_role_operation(roleid, opid) values
+		<foreach collection="list" item="item" index="index" separator=",">
+			(#{item.roleid}, #{item.opid})
+		</foreach>
+	</insert>
+	
+	<delete id="delRoleOpers">
+		delete from auth_role_operation where
+		<foreach collection="list" item="item" index="index" open="(" separator="or" close=")">
+			roleid = #{item.roleid} and opid = #{item.opid}
+		</foreach>
+	</delete>
+</mapper>

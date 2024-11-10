@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xe.demo.mapper.AuthOperationMapper">
+	<resultMap id="BaseResultMap" type="com.xe.demo.model.AuthOperation">
+		<id column="opid" jdbcType="INTEGER" property="opid" />
+		<result column="opcode" jdbcType="VARCHAR" property="opcode" />
+		<result column="opname" jdbcType="VARCHAR" property="opname" />
+		<result column="ophref" jdbcType="VARCHAR" property="ophref" />
+		<result column="opseq" jdbcType="INTEGER" property="opseq" />
+	</resultMap>
+
+	<select id="queryAllOpers" resultMap="BaseResultMap">
+		SELECT op.opid, op.opcode, op.opname, op.ophref, op.opseq FROM auth_operation AS op
+	</select>
+
+	<select id="queryOperation" resultMap="BaseResultMap">
+		SELECT op.opid, op.opcode, op.opname, op.ophref, op.opseq FROM auth_operation AS op where op.opcode = #{opcode} and op.ophref = #{ophref}
+	</select>
+
+	<insert id="batchSaveOper">
+		insert into auth_operation(opcode, opname, ophref, opseq) values
+		<foreach collection="list" item="item" index="index" separator=",">
+			(#{item.opcode}, #{item.opname}, #{item.ophref}, #{item.opseq})
+		</foreach>
+	</insert>
+
+	<update id="batchUpdateOper">
+		update auth_operation set opname = #{opname}, ophref = #{ophref}, opseq = #{opseq} where opcode = #{opcode} and ophref = #{ophref}
+	</update>
+
+	<delete id="batchDelOper">
+		delete from auth_operation where opid in
+		<foreach collection="list" item="item" index="index" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</delete>
+	
+	<select id="queryOperCount" resultType="int">
+		select count(op.opid) from auth_role_operation op where op.roleid = #{roleid} and op.opid = #{opid}
+	</select>
+	
+	<insert id="batchSaveGroupOper">
+		insert into auth_role_operation(roleid, opid) values
+		<foreach collection="list" item="item" index="index" separator=",">
+			(#{item.roleid}, #{item.opid})
+		</foreach>
+	</insert>
+	
+	<insert id="addOrUpdateOper" statementType="CALLABLE">
+		{call addOrUpdateOper(#{opcode}, #{ophref}, #{opname}, #{opseq})}
+	</insert>
+	
+	<insert id="bindOpers" statementType="CALLABLE">
+		{call bind_opers(#{roleid})}
+	</insert>
+</mapper>
